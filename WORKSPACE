@@ -20,7 +20,7 @@ http_archive(
   build_file = "@cpplint_build//file:downloaded",
 )
 
-hash = "9caf57f"
+hash = "8ae921c"
 http_archive(
   name = "libfactory",
   urls = ["https://github.com/nicmcd/libfactory/tarball/" + hash],
