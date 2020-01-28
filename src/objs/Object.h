@@ -32,12 +32,14 @@
 #define OBJS_OBJECT_H_
 
 #include <string>
+#include <vector>
 
 class Object {
  public:
   explicit Object(std::string _message);
 
   static Object* create(std::string, std::string);
+  static std::vector<std::string> subclasses();
 };
 
 #endif  // OBJS_OBJECT_H_

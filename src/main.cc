@@ -37,10 +37,21 @@
 int main(int _argc, char** _argv) {
   printf("Running main\n");
   for (int arg = 1; arg < _argc; arg++) {
-    printf("about to create a %s\n", _argv[arg]);
-    Object* obj = Object::create(
-        std::string(_argv[arg]), std::string("my-") + _argv[arg]);
-    delete obj;
+    std::string argstr(_argv[arg]);
+    if (argstr == "<help>") {
+      printf("Usage: give a list of <help>, <list>, or name objects\n");
+      return 0;
+    } else if (argstr == "<list>") {
+      printf("showing list\n");
+      for (const auto& sc : Object::subclasses()) {
+        printf("-%s\n", sc.c_str());
+      }
+    } else {
+      printf("about to create a %s\n", _argv[arg]);
+      Object* obj = Object::create(
+          std::string(_argv[arg]), std::string("my-") + _argv[arg]);
+      delete obj;
+    }
   }
   return 0;
 }

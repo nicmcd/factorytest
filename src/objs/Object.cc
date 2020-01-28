@@ -48,3 +48,7 @@ Object* Object::create(std::string _type, std::string _message) {
   }
   return obj;
 }
+
+std::vector<std::string> Object::subclasses() {
+  return factory::ObjectFactory<Object, std::string>::classes();
+}
