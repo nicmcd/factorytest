@@ -29,7 +29,6 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 #include <cstdio>
-
 #include <string>
 
 #include "objs/Object.h"
@@ -48,8 +47,8 @@ int main(int _argc, char** _argv) {
       }
     } else {
       printf("about to create a %s\n", _argv[arg]);
-      Object* obj = Object::create(
-          std::string(_argv[arg]), std::string("my-") + _argv[arg]);
+      Object* obj = Object::create(std::string(_argv[arg]),
+                                   std::string("my-") + _argv[arg]);
       delete obj;
     }
   }

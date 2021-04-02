@@ -30,12 +30,11 @@
  */
 #include "objs/Truck.h"
 
-#include <factory/ObjectFactory.h>
-
 #include <cstdio>
 
-Truck::Truck(std::string _message)
-    : Object(_message) {
+#include "factory/ObjectFactory.h"
+
+Truck::Truck(std::string _message) : Object(_message) {
   printf("Constructing truck %s\n", _message.c_str());
 }
 

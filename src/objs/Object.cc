@@ -30,18 +30,18 @@
  */
 #include "objs/Object.h"
 
-#include <factory/ObjectFactory.h>
-
 #include <cstdio>
 #include <cstdlib>
+
+#include "factory/ObjectFactory.h"
 
 Object::Object(std::string _message) {
   printf("Constructing %s\n", _message.c_str());
 }
 
 Object* Object::create(std::string _type, std::string _message) {
-  Object* obj = factory::ObjectFactory<Object, std::string>::create(
-      _type, _message);
+  Object* obj =
+      factory::ObjectFactory<Object, std::string>::create(_type, _message);
   if (obj == nullptr) {
     fprintf(stderr, "unknown object: %s\n", _type.c_str());
     exit(-1);
